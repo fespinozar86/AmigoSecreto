@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # AmigoSecreto
 Primer proyecto Alura Oracle
 
+=======
+>>>>>>> 2255601 (Agrega enlace al video demostrativo)
 # 🎁 Sorteo Amigo Secreto
 
 [Repositorio en GitHub](https://github.com/fespinozar86/AmigoSecreto)
@@ -22,6 +25,7 @@ Esta aplicación web te permite organizar sorteos de “amigo secreto” de mane
 
 ## 🖥️ Capturas de pantalla
 
+<<<<<<< HEAD
 > 1. **Pantalla principal:**  
 >    ![Pantalla principal](ruta/a/tu/captura1.png)
 >
@@ -30,6 +34,16 @@ Esta aplicación web te permite organizar sorteos de “amigo secreto” de mane
 >
 > 3. **Resultado del sorteo:**  
 >    ![Ganador](ruta/a/tu/captura3.png)
+=======
+1. **Pantalla principal:**  
+   ![Pantalla principal](img/1_Amigosecreto.png)
+
+2. **Lista de amigos agregados:**  
+   ![Lista de amigos](img/2_Amigosecreto.png)
+
+3. **Resultado del sorteo:**  
+   ![Ganador](img/3_Amigosecreto.png)
+>>>>>>> 2255601 (Agrega enlace al video demostrativo)
 
 ---
 
@@ -69,7 +83,11 @@ Esta aplicación web te permite organizar sorteos de “amigo secreto” de mane
 
 ## 📹 Video demostrativo
 
+<<<<<<< HEAD
 > [Ver video demostrativo](enlace-a-tu-video)
+=======
+> [Ver video demostrativo]https://drive.google.com/drive/folders/1qzyIlJYvV6zqg0Mw3TCUml6gzdiNEN0E?usp=sharing
+>>>>>>> 2255601 (Agrega enlace al video demostrativo)
 
 ---
 
@@ -80,4 +98,8 @@ Esta aplicación web te permite organizar sorteos de “amigo secreto” de mane
 ---
 
 ¡Gracias por usar y compartir este proyecto!  
+<<<<<<< HEAD
 ¿Tienes sugerencias o mejoras? ¡No dudes en contribuir!
+=======
+¿Tienes sugerencias o mejoras? ¡No dudes en contribuir!
+>>>>>>> 2255601 (Agrega enlace al video demostrativo)

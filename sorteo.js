@@ -7,7 +7,7 @@ function asignarTextoElemento(sel, texto) {
 }
 
 function mostrarResultado(nombre) {
-  alert('Ganador: ' + nombre);
+  asignarTextoElemento('#estado', '🎉 Ganador: ' + nombre);
 }
 
 function agregarAmigo(nombre) {
@@ -80,19 +80,18 @@ function sortearAmigo() {
   // Si aún no hay ronda preparada (o se vació), prepárala
   if (_pendientesRonda.length === 0) {
     _resetRonda();
-    // Si por algún motivo no se pudo (p.ej., lista <2), salimos
     if (_pendientesRonda.length === 0) return;
   }
 
-  const ganador = _pendientesRonda.pop(); // toma uno sin repetir
+  const ganador = _pendientesRonda.pop();
   mostrarResultado(ganador);
 
   // Estado: cuántos quedan
   const quedan = _pendientesRonda.length;
   if (quedan > 0) {
-    asignarTextoElemento('#estado', `Quedan ${quedan} por sortear en esta ronda.`);
+    asignarTextoElemento('#estado', `🎉 Ganador: ${ganador}<br>Quedan ${quedan} por sortear en esta ronda.`);
   } else {
-    asignarTextoElemento('#estado', '¡Ronda completada! Se reiniciará automáticamente en el próximo sorteo.');
+    asignarTextoElemento('#estado', `🎉 Ganador: ${ganador}<br>¡Ronda completada! Se reiniciará automáticamente en el próximo sorteo.`);
   }
 }
 

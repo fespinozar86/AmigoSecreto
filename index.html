@@ -1,12 +1,178 @@
-<!-- filepath: /workspaces/AmigoSecreto/index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Sorteo Amigo Secreto</title>
 </head>
-<body>
-  <div id="estado"></div>
+  <style>
+    body {
+      background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      background: #fff;
+      margin-top: 3em;
+      padding: 2em 2.5em 2em 2.5em;
+      border-radius: 1.2em;
+      box-shadow: 0 4px 24px 0 #b6b6e6a0;
+      max-width: 400px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    h1 {
+      text-align: center;
+      color: #4f46e5;
+      margin-bottom: 1.2em;
+    }
+    #form-amigo {
+      display: flex;
+      gap: 0.5em;
+      margin-bottom: 1.2em;
+    }
+    #input-amigo {
+      flex: 1;
+      padding: 0.5em 0.8em;
+      border: 1px solid #c7d2fe;
+      border-radius: 0.5em;
+      font-size: 1em;
+      background: #f1f5f9;
+      transition: border 0.2s;
+    }
+    #input-amigo:focus {
+      border: 1.5px solid #6366f1;
+      outline: none;
+    }
+    .btn {
+      background: #6366f1;
+      color: #fff;
+      border: none;
+      border-radius: 0.5em;
+      padding: 0.5em 1.1em;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px 0 #6366f12a;
+    }
+    .btn:hover {
+      background: #4338ca;
+    }
+    #btn-limpiar {
+      background: #f59e42;
+      color: #fff;
+      margin-left: 0.2em;
+    }
+    #btn-limpiar:hover {
+      background: #d97706;
+    }
+    #lista-amigos {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.2em 0;
+      min-height: 2em;
+    }
+    #lista-amigos li {
+      background: #eef2ff;
+      margin-bottom: 0.5em;
+      padding: 0.5em 0.8em;
+      border-radius: 0.5em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.05em;
+      box-shadow: 0 1px 4px 0 #6366f11a;
+    }
+    .btn-eliminar {
+      background: #ef4444;
+      color: #fff;
+      border: none;
+      border-radius: 0.4em;
+      padding: 0.3em 0.8em;
+      font-size: 0.95em;
+      cursor: pointer;
+      margin-left: 0.7em;
+      transition: background 0.2s;
+    }
+    .btn-eliminar:hover {
+      background: #b91c1c;
+    }
+    #btn-sortear {
+      margin-bottom: 1.2em;
+      font-weight: bold;
+      letter-spacing: 0.03em;
+    }
+    #estado {
+      min-height: 2.5em;
+      text-align: center;
+      font-size: 1.1em;
+      color: #3730a3;
+      margin-top: 0.5em;
+    }
+  </style>
+  <div class="container">
+    <h1>Sorteo Amigo Secreto</h1>
+    <form id="form-amigo" autocomplete="off">
+      <input type="text" id="input-amigo" placeholder="Nombre del amigo" required />
+      <button type="submit" class="btn">Agregar</button>
+      <button type="button" id="btn-limpiar" class="btn">Limpiar</button>
+    </form>
+    <ul id="lista-amigos"></ul>
+    <button id="btn-sortear" class="btn">Sortear</button>
+    <div id="estado"></div>
+  </div>
+  <script>
+    // --- Interfaz gráfica mejorada ---
+    const form = document.getElementById('form-amigo');
+    const input = document.getElementById('input-amigo');
+    const ul = document.getElementById('lista-amigos');
+    const btnLimpiar = document.getElementById('btn-limpiar');
+    const btnSortear = document.getElementById('btn-sortear');
+
+    function renderLista() {
+      ul.innerHTML = '';
+      listaAmigos.forEach(nombre => {
+        const li = document.createElement('li');
+        li.textContent = nombre;
+        const btnDel = document.createElement('button');
+        btnDel.textContent = 'Eliminar';
+        btnDel.className = 'btn-eliminar';
+        btnDel.onclick = () => {
+          eliminarAmigo(nombre);
+          renderLista();
+        };
+        li.appendChild(btnDel);
+        ul.appendChild(li);
+      });
+    }
+
+    form.onsubmit = function(e) {
+      e.preventDefault();
+      const nombre = input.value.trim();
+      if (nombre) {
+        agregarAmigo(nombre);
+        input.value = '';
+        renderLista();
+      }
+    };
+
+    btnLimpiar.onclick = function() {
+      limpiarLista();
+      renderLista();
+    };
+
+    btnSortear.onclick = function() {
+      sortearAmigo();
+      renderLista();
+    };
+
+    document.addEventListener('DOMContentLoaded', renderLista);
+  </script>
   <script src="sorteo.js"></script>
 </body>
 </html>
